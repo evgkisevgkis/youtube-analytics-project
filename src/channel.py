@@ -20,6 +20,10 @@ class Channel:
         self.video_count = self.channel["items"][0]["statistics"]["videoCount"]
         self.view_count = self.channel["items"][0]["statistics"]["viewCount"]
 
+    def __str__(self):
+        """Возвращает название канала и ссылку на него"""
+        return f"{self.title} ({self.url})"
+
     def print_info(self) -> None:
         """Выводит в консоль информацию о канале."""
         return print(json.dumps(self.channel, indent=2, ensure_ascii=False))
