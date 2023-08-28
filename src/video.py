@@ -19,3 +19,10 @@ class Video:
         self.view_count: int = self.video_response['items'][0]['statistics']['viewCount']
         self.like_count: int = self.video_response['items'][0]['statistics']['likeCount']
         self.comment_count: int = self.video_response['items'][0]['statistics']['commentCount']
+
+
+class PLVideo(Video):
+    """Класс для видео с инициализацией через ссылку на плей лист"""
+    def __init__(self, video_id: str, playlist_id: str):
+        super().__init__(video_id)
+        self.playlist_id = playlist_id
