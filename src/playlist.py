@@ -34,3 +34,12 @@ class PlayList:
             duration = parse_duration(iso_8601_duration)
             counter += duration
         return counter
+
+    def show_best_video(self):
+        best_result = 0
+        best_video = None
+        for video in self.video_response['items']:
+            if int(video['statistics']['likeCount']) > int(best_result):
+                best_result = video['statistics']['likeCount']
+                best_video = video
+        return f"https://youtu.be/{best_video['id']}"
